@@ -110,92 +110,94 @@ class _FirstCarouselState extends State<FirstCarousel> {
             ),
           ),
         ),
-        AspectRatio(
-          aspectRatio: 18 / 8,
-          child: Center(
-            heightFactor: 1,
-            child: Align(
-              alignment: Alignment.bottomCenter,
-              child: Padding(
-                padding: EdgeInsets.symmetric(
-                  horizontal: screenSize.width / 8,
-                ),
-                child: Card(
-                  elevation: 5,
-                  child: Padding(
-                    padding: EdgeInsets.symmetric(
-                      vertical: screenSize.width / 50,
-                    ),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        for (int i = 0; i < places.length; i++)
-                          Column(
-                            mainAxisSize: MainAxisSize.min,
+        screenSize.width < 800
+            ? Container()
+            : AspectRatio(
+                aspectRatio: 18 / 8,
+                child: Center(
+                  heightFactor: 1,
+                  child: Align(
+                    alignment: Alignment.bottomCenter,
+                    child: Padding(
+                      padding: EdgeInsets.symmetric(
+                        horizontal: screenSize.width / 8,
+                      ),
+                      child: Card(
+                        elevation: 5,
+                        child: Padding(
+                          padding: EdgeInsets.symmetric(
+                            vertical: screenSize.width / 50,
+                          ),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             children: [
-                              InkWell(
-                                splashColor: Colors.transparent,
-                                hoverColor: Colors.transparent,
-                                onHover: (value) {
-                                  setState(() {
-                                    value
-                                        ? _isHovering[i] = true
-                                        : _isHovering[i] = false;
-                                  });
-                                },
-                                onTap: () {
-                                  _controller.animateToPage(i);
-                                },
-                                child: Padding(
-                                  padding: EdgeInsets.only(
-                                    top: screenSize.height / 80,
-                                    bottom: screenSize.height / 90,
-                                  ),
-                                  child: Text(
-                                    places[i],
-                                    style: TextStyle(
-                                      fontFamily: 'Electrolize',
-                                      color: _isHovering[i]
-                                          ? Colors.blueGrey[900]
-                                          : Colors.blueGrey,
-                                    ),
-                                  ),
-                                ),
-                              ),
-                              Visibility(
-                                maintainSize: true,
-                                maintainAnimation: true,
-                                maintainState: true,
-                                visible: _isSelected[i],
-                                child: AnimatedOpacity(
-                                  opacity: _isSelected[i] ? 1 : 0,
-                                  duration: const Duration(
-                                    milliseconds: 400,
-                                  ),
-                                  child: Container(
-                                    height: 5,
-                                    decoration: const BoxDecoration(
-                                      color: Colors.blueGrey,
-                                      borderRadius: BorderRadius.all(
-                                        Radius.circular(
-                                          10,
+                              for (int i = 0; i < places.length; i++)
+                                Column(
+                                  mainAxisSize: MainAxisSize.min,
+                                  children: [
+                                    InkWell(
+                                      splashColor: Colors.transparent,
+                                      hoverColor: Colors.transparent,
+                                      onHover: (value) {
+                                        setState(() {
+                                          value
+                                              ? _isHovering[i] = true
+                                              : _isHovering[i] = false;
+                                        });
+                                      },
+                                      onTap: () {
+                                        _controller.animateToPage(i);
+                                      },
+                                      child: Padding(
+                                        padding: EdgeInsets.only(
+                                          top: screenSize.height / 80,
+                                          bottom: screenSize.height / 90,
+                                        ),
+                                        child: Text(
+                                          places[i],
+                                          style: TextStyle(
+                                            fontFamily: 'Electrolize',
+                                            color: _isHovering[i]
+                                                ? Colors.blueGrey[900]
+                                                : Colors.blueGrey,
+                                          ),
                                         ),
                                       ),
                                     ),
-                                    width: screenSize.width / 10,
-                                  ),
+                                    Visibility(
+                                      maintainSize: true,
+                                      maintainAnimation: true,
+                                      maintainState: true,
+                                      visible: _isSelected[i],
+                                      child: AnimatedOpacity(
+                                        opacity: _isSelected[i] ? 1 : 0,
+                                        duration: const Duration(
+                                          milliseconds: 400,
+                                        ),
+                                        child: Container(
+                                          height: 5,
+                                          decoration: const BoxDecoration(
+                                            color: Colors.blueGrey,
+                                            borderRadius: BorderRadius.all(
+                                              Radius.circular(
+                                                10,
+                                              ),
+                                            ),
+                                          ),
+                                          width: screenSize.width / 10,
+                                        ),
+                                      ),
+                                    ),
+                                  ],
                                 ),
-                              ),
                             ],
                           ),
-                      ],
+                        ),
+                      ),
                     ),
                   ),
                 ),
               ),
-            ),
-          ),
-        ),
       ],
     );
   }

@@ -11,6 +11,9 @@ class MenuDrawer extends StatelessWidget {
         padding: const EdgeInsets.all(18),
         child: Column(
           children: [
+            SafeArea(
+              child: Container(),
+            ),
             InkWell(
               onTap: () {},
               child: const Text(

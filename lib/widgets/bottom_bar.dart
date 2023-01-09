@@ -6,7 +6,7 @@ class BottomBar extends StatelessWidget {
   const BottomBar({super.key});
 
   static const Color gradientStartColor = Color(0xff11998e);
-  static const Color gradientEndColor = Color(0xff11998e);
+  static const Color gradientEndColor = Color(0xff0575e6);
 
   @override
   Widget build(BuildContext context) {
@@ -58,60 +58,136 @@ class BottomBar extends StatelessWidget {
       padding: const EdgeInsets.all(
         30,
       ),
-      child: Column(
-        children: [
-          Row(
-            mainAxisSize: MainAxisSize.max,
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
-              const BottomBarColumn(
-                heading: 'Home',
-                s1: 'Contact Us',
-                s2: 'About Us',
-                s3: 'Careers',
-              ),
-              Container(
-                color: Colors.white,
-                width: 2,
-                height: 150,
-              ),
-              // Column(
-              //   children: [Row()],
-              // )
-              Column(
-                mainAxisSize: MainAxisSize.min,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: const [
-                  InfoText(
-                    type: 'Email',
-                    text: 'text@me.com',
+      child: MediaQuery.of(context).size.width < 800
+          ? Column(
+              children: [
+                Column(
+                  mainAxisSize: MainAxisSize.max,
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: const [
+                        BottomBarColumn(
+                          heading: 'About',
+                          s1: 'Contact Us',
+                          s2: 'About Us',
+                          s3: 'Careers',
+                        ),
+                        BottomBarColumn(
+                          heading: 'Help',
+                          s1: 'F.A.Q',
+                          s2: 'Terms',
+                          s3: 'Policy',
+                        ),
+                        BottomBarColumn(
+                          heading: 'Social',
+                          s1: 'Facebook',
+                          s2: 'Twitter',
+                          s3: 'Insta',
+                        ),
+                      ],
+                    ),
+                    const Divider(
+                      color: Colors.white,
+                    ),
+                    const SizedBox(
+                      height: 10,
+                    ),
+                    Container(
+                      width: MediaQuery.of(context).size.height / 2,
+                      child: Column(
+                        mainAxisSize: MainAxisSize.min,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: const [
+                          InfoText(
+                            type: 'Email',
+                            text: 'text@me.com',
+                          ),
+                          SizedBox(
+                            height: 5,
+                          ),
+                          InfoText(
+                            type: 'Address',
+                            text: '123 abd road x, High way, Block Area 51',
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+                const Divider(
+                  color: Colors.white,
+                ),
+                const SizedBox(
+                  height: 20,
+                ),
+                const Text(
+                  'CopyRight © 2023 | son_Kami',
+                  style: TextStyle(
+                    fontSize: 14,
+                    color: Colors.white,
                   ),
-                  SizedBox(
-                    height: 5,
+                ),
+              ],
+            )
+          : Column(
+              children: [
+                Row(
+                  mainAxisSize: MainAxisSize.max,
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
+                    const BottomBarColumn(
+                      heading: 'About',
+                      s1: 'Contact Us',
+                      s2: 'About Us',
+                      s3: 'Careers',
+                    ),
+                    Container(
+                      color: Colors.white,
+                      width: 2,
+                      height: 150,
+                    ),
+                    // Column(
+                    //   children: [Row()],
+                    // )
+                    Container(
+                      width: MediaQuery.of(context).size.height / 2,
+                      child: Column(
+                        mainAxisSize: MainAxisSize.min,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: const [
+                          InfoText(
+                            type: 'Email',
+                            text: 'text@me.com',
+                          ),
+                          SizedBox(
+                            height: 5,
+                          ),
+                          InfoText(
+                            type: 'Address',
+                            text: '123 abd road x, High way, Block Area 51',
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+                const Divider(
+                  color: Colors.white,
+                ),
+                const SizedBox(
+                  height: 20,
+                ),
+                const Text(
+                  'CopyRight © 2023 | son_Kami',
+                  style: TextStyle(
+                    fontSize: 14,
+                    color: Colors.white,
                   ),
-                  InfoText(
-                    type: 'Address',
-                    text: '123 abd road x, High way, Block Area 51',
-                  ),
-                ],
-              ),
-            ],
-          ),
-          const Divider(
-            color: Colors.white,
-          ),
-          const SizedBox(
-            height: 20,
-          ),
-          const Text(
-            'CopyRight © 2023 | son_Kami',
-            style: TextStyle(
-              fontSize: 14,
-              color: Colors.white,
+                ),
+              ],
             ),
-          ),
-        ],
-      ),
     );
   }
 }

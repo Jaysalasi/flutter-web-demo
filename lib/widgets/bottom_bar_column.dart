@@ -20,6 +20,8 @@ class BottomBarColumn extends StatelessWidget {
         bottom: 20,
       ),
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisAlignment: MainAxisAlignment.start,
         children: [
           Text(
             heading,
@@ -31,6 +33,30 @@ class BottomBarColumn extends StatelessWidget {
           ),
           const SizedBox(
             height: 10,
+          ),
+          Text(
+            s1,
+            style: const TextStyle(
+              color: Colors.white,
+              fontWeight: FontWeight.w400,
+              fontSize: 14,
+            ),
+          ),
+          Text(
+            s2,
+            style: const TextStyle(
+              color: Colors.white,
+              fontWeight: FontWeight.w400,
+              fontSize: 14,
+            ),
+          ),
+          Text(
+            s3,
+            style: const TextStyle(
+              color: Colors.white,
+              fontWeight: FontWeight.w400,
+              fontSize: 14,
+            ),
           ),
         ],
       ),

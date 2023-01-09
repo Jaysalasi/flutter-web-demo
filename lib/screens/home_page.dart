@@ -4,6 +4,7 @@ import 'package:book_me/widgets/featured_heading.dart';
 import 'package:book_me/widgets/featured_tiles.dart';
 import 'package:book_me/widgets/floating_quick_access_bar.dart';
 import 'package:book_me/widgets/main_heading.dart';
+import 'package:book_me/widgets/menu_drawer.dart';
 import 'package:book_me/widgets/top_bar_contents.dart';
 import 'package:flutter/material.dart';
 
@@ -26,7 +27,6 @@ class _HomePageState extends State<HomePage> {
 
   @override
   void initState() {
-    // TODO: implement initState
     _scrollController.addListener(_scrollListener);
     super.initState();
   }
@@ -39,22 +39,46 @@ class _HomePageState extends State<HomePage> {
         : 1;
     return Scaffold(
       extendBodyBehindAppBar: true,
-      appBar: PreferredSize(
-          preferredSize: Size(screenSize.width, 70),
-          child: Column(
-            children: [
-              SafeArea(
-                child: Container(),
+      appBar: screenSize.width < 800
+          ? AppBar(
+              iconTheme: const IconThemeData(
+                color: Colors.blue,
               ),
-              TopBarContents(_opacity),
-            ],
-          )),
+              elevation: 0,
+              backgroundColor: Colors.white.withOpacity(
+                _opacity,
+              ),
+              title: const Text(
+                'Author',
+                style: TextStyle(
+                  color: Color(0xFF077bd7),
+                  fontSize: 26,
+                  fontFamily: 'Raleway',
+                  fontWeight: FontWeight.w900,
+                  letterSpacing: 3,
+                ),
+              ),
+            )
+          : PreferredSize(
+              preferredSize: Size(screenSize.width, 70),
+              child: TopBarContents(
+                _opacity,
+              ),
+            ),
+      drawer: const MenuDrawer(),
       body: SingleChildScrollView(
         controller: _scrollController,
         child: Column(
           children: [
             Stack(
               children: [
+                screenSize.width < 800
+                    ? const SizedBox(
+                        height: 60,
+                      )
+                    : const SizedBox(
+                        height: 0,
+                      ),
                 Container(
                   child: SizedBox(
                     height: screenSize.height * 0.65,
@@ -79,8 +103,11 @@ class _HomePageState extends State<HomePage> {
                     MainHeading(
                       screenSize: screenSize,
                     ),
-                    FirstCarousel(),
-                    BottomBar(),
+                    const FirstCarousel(),
+                    SizedBox(
+                      height: screenSize.height / 10,
+                    ),
+                    const BottomBar(),
                   ],
                 )
               ],

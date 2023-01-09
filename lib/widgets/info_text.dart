@@ -9,21 +9,26 @@ class InfoText extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
+      mainAxisSize: MainAxisSize.min,
+      mainAxisAlignment: MainAxisAlignment.center,
+      crossAxisAlignment: CrossAxisAlignment.end,
       children: [
         Text(
           '$type: ',
           style: const TextStyle(
             color: Colors.white,
-            fontSize: 16,
+            fontSize: 14,
           ),
         ),
-        Text(
-          text,
-          overflow: TextOverflow.ellipsis,
-          maxLines: 2,
-          style: const TextStyle(
-            color: Colors.white,
-            fontSize: 16,
+        Flexible(
+          child: Text(
+            text,
+            overflow: TextOverflow.ellipsis,
+            maxLines: 2,
+            style: const TextStyle(
+              color: Colors.white,
+              fontSize: 10,
+            ),
           ),
         ),
       ],
