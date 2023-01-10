@@ -79,14 +79,12 @@ class _HomePageState extends State<HomePage> {
                     : const SizedBox(
                         height: 0,
                       ),
-                Container(
-                  child: SizedBox(
-                    height: screenSize.height * 0.65,
-                    width: screenSize.width,
-                    child: Image.asset(
-                      'assets/images/background.png',
-                      fit: BoxFit.cover,
-                    ),
+                SizedBox(
+                  height: screenSize.height * 0.65,
+                  width: screenSize.width,
+                  child: Image.asset(
+                    'assets/images/background.png',
+                    fit: BoxFit.cover,
                   ),
                 ),
                 Column(

@@ -7,7 +7,7 @@ class MenuDrawer extends StatelessWidget {
   Widget build(BuildContext context) {
     return Drawer(
       child: Container(
-        color: const Color(0xff6158e6),
+        color: const Colors.grey,
         padding: const EdgeInsets.all(18),
         child: Column(
           children: [
@@ -19,8 +19,8 @@ class MenuDrawer extends StatelessWidget {
               child: const Text(
                 'Login',
                 style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 22,
+                  color: Colors.black,
+                  fontSize: 16,
                 ),
               ),
             ),
@@ -37,8 +37,8 @@ class MenuDrawer extends StatelessWidget {
               child: const Text(
                 'Sign up',
                 style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 22,
+                  color: Colors.black,
+                  fontSize: 16,
                 ),
               ),
             ),
@@ -55,8 +55,8 @@ class MenuDrawer extends StatelessWidget {
               child: const Text(
                 'Read',
                 style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 22,
+                  color: Colors.black,
+                  fontSize: 16,
                 ),
               ),
             ),
@@ -73,8 +73,8 @@ class MenuDrawer extends StatelessWidget {
               child: const Text(
                 'Contact us',
                 style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 22,
+                  color: Colors.black,
+                  fontSize: 16,
                 ),
               ),
             ),

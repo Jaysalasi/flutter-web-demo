@@ -94,7 +94,7 @@ class BottomBar extends StatelessWidget {
                     const SizedBox(
                       height: 10,
                     ),
-                    Container(
+                    SizedBox(
                       width: MediaQuery.of(context).size.height / 2,
                       child: Column(
                         mainAxisSize: MainAxisSize.min,
@@ -151,7 +151,7 @@ class BottomBar extends StatelessWidget {
                     // Column(
                     //   children: [Row()],
                     // )
-                    Container(
+                    SizedBox(
                       width: MediaQuery.of(context).size.height / 2,
                       child: Column(
                         mainAxisSize: MainAxisSize.min,
